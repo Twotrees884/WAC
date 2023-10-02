@@ -1,0 +1,332 @@
+@charset "utf-8";
+
+
+/*メニュー関連の設定*/
+    .menu-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        height: 60px;
+        width: 60px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        background-color:transparent;/*正方形ボタンの背景色*/
+    }
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background-color: #49545d;
+        position: absolute;
+    }
+    .menu-btn span:before {
+        bottom: 8px;
+    }
+    .menu-btn span:after {
+        top: 8px;
+    }
+
+    #menu-btn-check:checked ~ .menu-btn span {
+        background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+    }
+    #menu-btn-check:checked ~ .menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    #menu-btn-check:checked ~ .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    #menu-btn-check {
+        display: none;
+    }
+
+    .menu {
+        padding: 0px 0 50px 0;
+    }
+
+    .menu-content ul {
+        width: 100%;
+        padding: 7% 20%;
+        text-align:left;
+    }
+    .menu-content ul li {
+        list-style: none;
+    }
+    .menu-content ul li a {
+        display: block;
+        width: 100%;
+        font-size: 1.5em;
+        line-height: 1.1em;
+        letter-spacing: 0.1em;
+        box-sizing: border-box;
+        color:rgb(255, 255, 255);
+        text-decoration: none;
+        padding: 0px 10px 10px 0;
+        position: relative;
+    }
+
+    #menu-btn-check:checked ~ .menu-content {
+        left: 0%;
+    }
+
+    .menu-content {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        z-index: 80;
+        background-color:rgba(0, 0, 0, 0.412);
+        transition: all 0.5s;
+    }
+
+    .menu {
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-weight: 300;
+    }
+
+    .menutitle {
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-weight: 700;
+        font-size: 50px;
+    }
+/*　メニュー関連の設定おわり*/
+
+
+/*　サイト本体の見た目に関する設定*/
+    body {
+        background-color: #ffc229;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+
+    article {
+        color: #49545d;
+        text-align: center;
+        line-height: 2em;
+        padding: 100px;
+        display:block;
+        position: relative;
+        margin: 100px 0;
+    }
+
+    /*見出しの設定*/
+    h2 {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0 auto;
+        text-align: center;
+        color:#49545d;
+        line-height: 1.2em;
+        letter-spacing: 0.05em;
+    }
+
+    h2 span {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    h2 ::after{
+        content: "";
+        width: 3px;
+        height: 20px;
+        background: #49545d;
+        margin: 15px auto 10px;
+        display: block;
+    }
+
+
+
+    /*画像関係の設定*/
+    .schedule-pic img{
+        margin: auto;
+    }
+
+    /*浮かばせる画像の設定*/
+    .img1 {
+        left: 100px;
+        position: absolute;
+        top: 0px;
+        width: 200px;
+        height: auto;
+        z-index: -1;
+    }
+
+    .img2 {
+        position: absolute;
+        right: 100px;
+        top: 100px;
+        width: 200px;
+        height: auto;
+        z-index: -1;
+    }
+
+    .img3 {
+        left: 50px;
+        position: absolute;
+        top: 300px;
+        width: 200px;
+        height: auto;
+        z-index: -1;
+    }
+
+    .box{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .box li{
+        display: block;
+        margin: 10px;
+        text-align: center;
+    }
+
+
+    /* 浮かばせる画像のアニメーション */
+    .img1,.img2,.img3,.img4,.img5 {
+        animation: move-y 1s infinite alternate ease-in-out;
+        display: inline-block;
+    }
+    @keyframes move-y {
+        from {
+        transform: translateY(0);
+        }
+        to {
+        transform: translateY(10px);
+        }
+    }
+/*　サイト本体の見た目に関する設定おわり*/
+
+
+    /* パソコンで見たときは"pc"のclassがついた画像が表示される */
+    .pc { display: block !important; }
+    .sp { display: none !important; }
+
+
+
+
+/*開催概要の表の設定*/
+    table{
+        margin:auto;
+        border-spacing: 0;
+        border-collapse: collapse;
+        color: #49545d;
+    }
+
+    .infomation th{
+        width: 200px;
+        border-bottom: 1px solid rgb(189, 183, 162);
+        padding: 12px 0;
+        font-weight: bold;
+    }
+
+    .infomation td{
+        width: 400px;
+        border-bottom: 1px solid rgb(189, 183, 162);
+        padding: 12px 0 12px 40px;
+    }
+/*表の設定おわり*/
+
+
+/*フッターの設定*/
+    footer{
+        text-align: center;
+        background-color: #FFBA08;
+        color: #ffffff;
+        padding: 10px;
+
+    }
+
+    footer p {
+        font-size: small;
+    }
+
+    footer p br {
+        display: none;
+    }
+/*フッターおわり*/
+
+
+/*marginの設定*/
+.margin {
+    margin: 35px 0;
+}
+
+.margin2 {
+    margin-top: 100px;
+}
+/*marginおわり*/
+
+
+/*レスポンシブデザイン*/
+@media screen and (max-width:800px){
+
+    body{
+        font-size: 3.5vw;
+    }
+
+    h2{
+        font-size: 6vw;
+    }
+
+    #wrap{
+        margin-top: 40px;
+        padding: 35px 0 0;
+    }
+
+    .box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box li{
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .img1,.img2,.img3,.img4,.img5 {
+        width: 18%;
+    }
+
+    article p br {
+        display: none;
+      }
+
+    .menu{
+        font-size: 2.8vw;
+    }
+
+    .menutitle{
+        font-size: 6.6vw;
+    }
+
+    .menu-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      footer p{
+        font-size: 2.4vw;
+        line-height: 2.7vw;
+      }
+
+      footer p br {
+        display: inline;
+      }
+
+    /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+    @media only screen and (max-width: 750px) {
+        .pc { display: none !important; }
+        .sp { display: block !important; }
+    }
+
+
+}
